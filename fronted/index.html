@@ -3,52 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asistente Legal de Puno - Chat Virtual</title>
+    <title>Asistente Municipal de Puno - Chat Virtual</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(135deg, #e0f7fa, #bbdefb); 
+            background: linear-gradient(135deg, #e0f7fa, #bbdefb);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px; 
+            padding: 20px;
             margin: 0;
             overflow: hidden;
         }
         .chat-container {
-            width: 100%; 
-            max-width: 650px; 
+            width: 100%;
+            max-width: 650px;
             background-color: #ffffff;
-            border-radius: 15px; 
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); 
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            height: 90vh; 
-            min-height: 450px; 
+            height: 90vh;
+            min-height: 450px;
         }
 
-        @media (max-width: 576px) { 
+        @media (max-width: 576px) {
             body {
-                padding: 0; 
-                overflow-y: auto; 
+                padding: 0;
+                overflow-y: auto;
             }
             .chat-container {
-                border-radius: 0; 
-                height: 100vh; 
-                width: 100%; 
-                max-width: none; 
-                min-height: 100vh; 
-                margin: 0; 
-                box-shadow: none; 
+                border-radius: 0;
+                height: 100vh;
+                width: 100%;
+                max-width: none;
+                min-height: 100vh;
+                margin: 0;
+                box-shadow: none;
             }
         }
 
         .chat-header {
-            background: linear-gradient(to right, #007bff, #00bfff); 
+            background: linear-gradient(to right, #007bff, #00bfff);
             color: white;
             padding: 1rem 1.25rem;
             display: flex;
@@ -104,7 +104,7 @@
             display: flex;
             align-items: center;
             padding: 0.5rem 1.25rem;
-            background-color: #f8f9fa; 
+            background-color: #f8f9fa;
             border-bottom: 1px solid #e9ecef;
             color: #495057;
             font-size: 0.85rem;
@@ -113,7 +113,7 @@
         .online-indicator .status-dot {
             width: 8px;
             height: 8px;
-            background-color: #28a745; 
+            background-color: #28a745;
             border-radius: 50%;
             margin-right: 8px;
             animation: pulse 1.5s infinite;
@@ -128,7 +128,7 @@
             flex-grow: 1;
             padding: 1rem;
             overflow-y: auto;
-            background-color: #fbfdff; 
+            background-color: #fbfdff;
             background-image: url('https://www.transparenttextures.com/patterns/white-paper.png');
         }
         .chat-input {
@@ -151,7 +151,7 @@
         .chat-input input {
             flex-grow: 1;
             margin-right: 0.75rem;
-            border-radius: 20px; 
+            border-radius: 20px;
             padding: 0.75rem 1rem;
             border: 1px solid #ced4da;
             font-size: 0.95rem;
@@ -163,12 +163,12 @@
             outline: none;
         }
         .send-button {
-            background: linear-gradient(45deg, #007bff, #00bfff); 
+            background: linear-gradient(45deg, #007bff, #00bfff);
             border: none;
-            border-radius: 50%; 
-            min-width: 45px; 
+            border-radius: 50%;
+            min-width: 45px;
             min-height: 45px;
-            width: 45px; 
+            width: 45px;
             height: 45px;
             display: flex;
             align-items: center;
@@ -189,26 +189,26 @@
             box-shadow: none;
             transform: none;
         }
-        
+
         .message-bubble {
-            margin-bottom: 0.8rem; 
+            margin-bottom: 0.8rem;
             padding: 0.85rem 1.1rem;
-            border-radius: 18px; 
+            border-radius: 18px;
             max-width: 85%;
             font-size: 0.95rem;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); 
-            animation: fadeIn 0.3s ease-out; 
-            word-wrap: break-word; 
-            line-height: 1.5; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+            animation: fadeIn 0.3s ease-out;
+            word-wrap: break-word;
+            line-height: 1.5;
         }
         .chatbot-message {
-            background-color: #e0f7fa; 
+            background-color: #e0f7fa;
             color: #333;
             align-self: flex-start;
             margin-right: auto;
         }
         .user-message {
-            background: linear-gradient(45deg, #007bff, #00bfff); 
+            background: linear-gradient(45deg, #007bff, #00bfff);
             color: white;
             align-self: flex-end;
             margin-left: auto;
@@ -218,7 +218,7 @@
         }
         .chatbot-message h6 {
             font-weight: bold;
-            color: #0056b3; 
+            color: #0056b3;
             margin-top: 10px;
             margin-bottom: 5px;
             border-bottom: 1px solid rgba(0, 123, 255, 0.2);
@@ -238,7 +238,7 @@
 
         .options-container {
             display: flex;
-            flex-wrap: wrap; 
+            flex-wrap: wrap;
             justify-content: flex-start;
             margin-bottom: 1rem;
             max-width: 100%;
@@ -248,13 +248,13 @@
             background-color: white;
             color: #007bff;
             border: 1px solid #007bff;
-            border-radius: 20px; 
+            border-radius: 20px;
             padding: 0.6rem 1.2rem;
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 0.9rem;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
-            white-space: nowrap; 
+            white-space: nowrap;
         }
         .option-button:hover {
             background: linear-gradient(45deg, #007bff, #00bfff);
@@ -303,7 +303,7 @@
             border: none;
             background-color: #ffffff;
             min-width: 180px;
-            right: 0; 
+            right: 0;
             left: unset;
         }
         .dropdown-menu .dropdown-item {
@@ -320,18 +320,18 @@
             padding: 0.75rem 1.5rem;
             font-size: 1rem;
             border-radius: 25px;
-            margin: 0.5rem; 
+            margin: 0.5rem;
         }
         .welcome-message .d-flex {
-            flex-wrap: wrap; 
+            flex-wrap: wrap;
             justify-content: center;
         }
-        .welcome-message .send-button { 
+        .welcome-message .send-button {
             background: linear-gradient(45deg, #007bff, #00bfff);
             color: white;
             border: none;
             box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
-            width: auto; 
+            width: auto;
             height: auto;
             min-width: unset;
             min-height: unset;
@@ -352,7 +352,7 @@
     <div class="chat-container d-flex flex-column">
         <div class="chat-header">
             <h5 class="mb-0">
-                <img src="municipalidad_puno.jpeg" alt="Logo Municipalidad Puno"> Asistente Legal de Puno
+                <img src="municipalidad_puno.jpeg" alt="Logo Municipalidad Puno"> Asistente Municipal de Puno
             </h5>
             <div class="header-info">
                 <div class="dropdown">
@@ -375,7 +375,7 @@
         </div>
         <div id="chat-window" class="chat-messages d-flex flex-column">
             <div class="welcome-message text-center p-4">
-                <h4>¡Hola! Soy tu Asistente Legal de Puno <span role="img" aria-label="wave">👋</span></h4>
+                <h4>¡Hola! Soy tu Asistente Municipal de Puno <span role="img" aria-label="wave">👋</span></h4>
                 <p>Estoy aquí para ayudarte con información sobre trámites administrativos municipales.</p>
                 <div class="d-flex justify-content-center mt-3">
                     <button class="btn send-button me-2 welcome-button" data-action="iniciar-consulta">Iniciar Consulta</button>
@@ -407,16 +407,16 @@
                 userInput.disabled = disabled;
                 sendButton.disabled = disabled;
                 if (disabled) {
-                    userInput.placeholder = "Seleccione una opción o espere al Asistente Legal...";
+                    userInput.placeholder = "Seleccione una opción o espere al Asistente Municipal...";
                 } else {
                     userInput.placeholder = "Describa su necesidad o escriba su pregunta...";
                 }
             }
 
-            setInputState(true); 
+            setInputState(true);
 
             infoButton.addEventListener('click', () => {
-                alert('Información del Asistente: Soy un bot virtual especializado en trámites legales de la Municipalidad Provincial de Puno.');
+                alert('Información del Asistente: Soy un bot virtual especializado en trámites Municipales de la Municipalidad Provincial de Puno.');
             });
 
             menuDropdownItems.forEach(item => {
@@ -426,11 +426,11 @@
                     if (action === 'reset-chat') {
                         if (confirm('¿Estás seguro de que quieres reiniciar la conversación? Se perderá el historial actual.')) {
                             conversationHistory = [];
-                            chatWindow.innerHTML = ''; 
+                            chatWindow.innerHTML = '';
                             const newWelcomeMessage = document.createElement('div');
                             newWelcomeMessage.className = 'welcome-message text-center p-4';
                             newWelcomeMessage.innerHTML = `
-                                <h4>¡Hola! Soy tu Asistente Legal de Puno <span role="img" aria-label="wave">👋</span></h4>
+                                <h4>¡Hola! Soy tu Asistente Municipal de Puno <span role="img" aria-label="wave">👋</span></h4>
                                 <p>Estoy aquí para ayudarte con información sobre trámites administrativos municipales.</p>
                                 <div class="d-flex justify-content-center mt-3">
                                     <button class="btn send-button me-2 welcome-button" data-action="iniciar-consulta">Iniciar Consulta</button>
@@ -444,7 +444,7 @@
                                     const action = event.target.dataset.action;
                                     let messageToSend = '';
                                     if (newWelcomeMessage) {
-                                        newWelcomeMessage.remove(); 
+                                        newWelcomeMessage.remove();
                                     }
                                     setInputState(false);
                                     userInput.focus();
@@ -482,7 +482,7 @@
                     let messageToSend = '';
 
                     if (welcomeMessageElement) {
-                        welcomeMessageElement.remove(); 
+                        welcomeMessageElement.remove();
                     }
 
                     setInputState(false);
@@ -491,11 +491,11 @@
                     if (action === 'terminos') {
                         alert("Simulación: Aquí irían los términos de uso. Por favor, inicie su consulta cuando esté listo.");
                         addMessageToChat('user', "He revisado los términos de uso.");
-                        return; 
+                        return;
                     } else if (action === 'privacidad') {
                         alert("Simulación: Aquí iría la política de privacidad. Por favor, inicie su consulta cuando esté listo.");
                         addMessageToChat('user', "He revisado la política de privacidad.");
-                        return; 
+                        return;
                     } else if (action === 'iniciar-consulta') {
                         messageToSend = "Estoy listo para iniciar la consulta.";
                     }
@@ -526,9 +526,9 @@
                 // Buscar y formatear secciones como títulos (negrita, salto de línea, posible h6)
                 // Usamos h6 para que no interfiera con otros posibles títulos HTML
                 const sectionTitles = [
-                    "Descripción del procedimiento:", "Requisitos:", "Notas:", 
-                    "Canales de atención:", "Pago por derecho de tramitación:", 
-                    "Modalidad de pagos:", "Plazo de atención:", 
+                    "Descripción del procedimiento:", "Requisitos:", "Notas:",
+                    "Canales de atención:", "Pago por derecho de tramitación:",
+                    "Modalidad de pagos:", "Plazo de atención:",
                     "Calificación del procedimiento:", "Formularios:", "Ubicación:"
                 ];
 
@@ -556,7 +556,7 @@
                 } else {
                     messageBubble.classList.add('chatbot-message');
                     // Formatear el mensaje del chatbot aquí
-                    message = formatChatbotMessage(message); 
+                    message = formatChatbotMessage(message);
                 }
                 messageBubble.innerHTML = message.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
                 chatWindow.appendChild(messageBubble);
@@ -572,62 +572,25 @@
                         optionsContainer.appendChild(button);
                     });
                     chatWindow.appendChild(optionsContainer);
-                    setInputState(true); 
+                    setInputState(true);
                 } else {
-                    setInputState(false); 
+                    setInputState(false);
                 }
-                
+
                 if (sender === 'user' || sender === 'chatbot') {
                     conversationHistory.push({ sender: sender, message: message, options: options });
                 }
-                
-                chatWindow.scrollTop = chatWindow.scrollHeight; 
+
+                chatWindow.scrollTop = chatWindow.scrollHeight;
             }
 
             async function handleOptionClick(selectedOption, optionsContainer) {
                 Array.from(optionsContainer.children).forEach(button => button.disabled = true);
-                optionsContainer.classList.add('options-selected');
-
                 addMessageToChat('user', selectedOption);
-
-                setInputState(true);
-
-                const thinkingBubble = document.createElement('div');
-                thinkingBubble.classList.add('message-bubble', 'chatbot-message', 'thinking-message');
-                thinkingBubble.textContent = 'El Asistente Legal está pensando'; 
-                chatWindow.appendChild(thinkingBubble);
-                chatWindow.scrollTop = chatWindow.scrollHeight;
-
-                try {
-                    const response = await fetch('http://127.0.0.1:5000/chat', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({ 
-                            message: selectedOption, 
-                            chat_history: conversationHistory
-                        }),
-                    });
-
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-
-                    const data = await response.json();
-                    
-                    chatWindow.removeChild(thinkingBubble);
-                    addMessageToChat('chatbot', data.message, data.options);
-
-                } catch (error) {
-                    console.error('Error al obtener respuesta del chatbot:', error);
-                    chatWindow.removeChild(thinkingBubble);
-                    addMessageToChat('chatbot', 'Lo siento, hubo un error en la consulta. Por favor, intente de nuevo más tarde.');
-                    setInputState(false);
-                }
+                await sendMessage(selectedOption);
             }
 
-
+            // Función principal para enviar el mensaje al backend
             async function sendMessage(initialMessage = null) {
                 const userText = initialMessage || userInput.value.trim();
                 if (userText === '') return;
@@ -635,13 +598,13 @@
                 if (initialMessage === null) {
                     addMessageToChat('user', userText);
                 }
-                userInput.value = '';
+                userInput.value = ''; // Limpiar el input
 
                 setInputState(true);
 
                 const thinkingBubble = document.createElement('div');
                 thinkingBubble.classList.add('message-bubble', 'chatbot-message', 'thinking-message');
-                thinkingBubble.textContent = 'El Asistente Legal está pensando';
+                thinkingBubble.textContent = 'El Asistente Municipal está pensando';
                 chatWindow.appendChild(thinkingBubble);
                 chatWindow.scrollTop = chatWindow.scrollHeight;
 
@@ -651,8 +614,8 @@
                         headers: {
                             'Content-Type': 'application/json',
                         },
-                        body: JSON.stringify({ 
-                            message: userText, 
+                        body: JSON.stringify({
+                            message: userText,
                             chat_history: conversationHistory
                         }),
                     });
@@ -662,15 +625,13 @@
                     }
 
                     const data = await response.json();
-                    
                     chatWindow.removeChild(thinkingBubble);
                     addMessageToChat('chatbot', data.message, data.options);
 
                 } catch (error) {
-                    console.error('Error al obtener respuesta del chatbot:', error);
+                    console.error('Error al enviar mensaje al backend:', error);
                     chatWindow.removeChild(thinkingBubble);
-                    addMessageToChat('chatbot', 'Lo siento, hubo un error en la consulta. Por favor, intente de nuevo más tarde.');
-                    setInputState(false);
+                    addMessageToChat('chatbot', 'Lo siento, no pude obtener una respuesta en este momento. Por favor, intente de nuevo más tarde.');
                 }
             }
         });

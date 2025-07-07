@@ -56,9 +56,9 @@ with app.app_context():
 # --- Fin de Contenido de los documentos precargados ---
 
 
-# Define el system_instruction para tu asistente legal
-system_instruction_legal = (
-    "Eres un asistente virtual especializado en trámites legales de la Municipalidad Provincial de Puno. "
+# Define el system_instruction para tu asistente Municipal
+system_instruction_municipal = (
+    "Eres un asistente virtual especializado en trámites Municipales de la Municipalidad Provincial de Puno. "
     "Tu función es proporcionar información clara y concisa sobre los procedimientos administrativos. "
     "Responde a las preguntas de los usuarios de manera servicial y profesional, utilizando **exclusivamente** la información que te ha sido proporcionada en el contexto de la conversación (incluyendo los documentos precargados que te he suministrado). "
     "Si el usuario pregunta sobre un trámite de divorcio o separación (por ejemplo, 'quiero divorciarme', 'necesito saber sobre divorcio'), proporciona directamente la **información completa y detallada del procedimiento 'Solicitud para el Procedimiento no Contencioso de Separación Convencional y Divorcio Ulterior' tal como aparece en el documento precargado**, incluyendo: "
@@ -71,9 +71,9 @@ system_instruction_legal = (
     "   - El pago por derecho de tramitación."
     "   - Las modalidades de pago."
     "Asegúrate de mantener el formato original (saltos de línea obligatorio a cada subtitulo al menos 2 lineas, numeración, etc.) para que sea fácil de leer. "
-    "Siempre inicia tus respuestas diciendo 'Asistente Legal de Puno:'. "
+    "Siempre inicia tus respuestas diciendo 'Asistente Municipal de Puno:'. "
     "Si la pregunta no está relacionada con la información que posees o no puedes inferirla directamente de los documentos, indícalo amablemente diciendo que no tienes información al respecto. "
-    "No intentes realizar diagnósticos médicos ni dar consejos que no estén directamente relacionados con los trámites legales que conoces."
+    "No intentes realizar diagnósticos médicos ni dar consejos que no estén directamente relacionados con los trámites Municipales que conoces."
 )
 
 @app.route('/chat', methods=['POST'])
@@ -89,12 +89,10 @@ def chat():
     gemini_history = []
 
     # 1. La instrucción del sistema como el primer mensaje del rol 'user'
-    gemini_history.append({"role": 'user', "parts": system_instruction_legal})
+    gemini_history.append({"role": 'user', "parts": system_instruction_municipal}) # Cuidado: el rol 'user' para system_instruction es un patrón común, pero Gemini-1.5 a veces prefiere 'system'. Sin embargo, para 1.5-flash y la forma de usar history, 'user' es el que mejor se integra aquí.
 
     # 2. Inyectar el contenido de los documentos precargados al inicio de la conversación
     for doc_key, content in PRELOADED_DOC_CONTENTS.items():
-        # Para mejorar el prompt y la comprensión del modelo, podemos etiquetar el contenido
-        # de los documentos para que sepa qué información corresponde a cada tema.
         if doc_key == "separacion_divorcio":
             gemini_history.append({"role": 'user', "parts": [
                 "Aquí está la información sobre el Procedimiento de Separación Convencional y Divorcio Ulterior:",
@@ -120,15 +118,12 @@ def chat():
         response_gemini = convo.send_message(user_message, generation_config=genai.GenerationConfig(temperature=0.1))
         bot_raw_text = response_gemini.text.strip()
 
-        # No necesitamos el regex para opciones si la salida principal será el procedimiento completo
-        # Sin embargo, si el modelo ocasionalmente genera opciones, lo podemos mantener.
-        # Por ahora, nos enfocamos en que la respuesta completa no se trunque por el split.
         response_message = bot_raw_text
         response_options = [] # Mantener vacío si no se esperan opciones estructuradas
 
-        # Asegúrate de que el prefijo "Asistente Legal de Puno:" esté presente
-        if not response_message.lower().startswith('asistente legal de puno:'):
-            response_message = 'Asistente Legal de Puno: ' + response_message
+        # Asegúrate de que el prefijo "Asistente Municipal de Puno:" esté presente
+        if not response_message.lower().startswith('asistente municipal de puno:'):
+            response_message = 'Asistente Municipal de Puno: ' + response_message
 
         return jsonify({
             "message": response_message.strip(),

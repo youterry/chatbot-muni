@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sendButton.disabled = disabled;
         uploadButton.disabled = disabled;
         if (disabled) {
-            userInput.placeholder = "Seleccione una opción o espere al Asistente Legal...";
+            userInput.placeholder = "Seleccione una opción o espere al Asistente Municipal...";
         } else {
             userInput.placeholder = "Describa su necesidad o escriba su pregunta...";
         }
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (welcomeMessageElement) {
                 welcomeMessageElement.remove();
-                conversationHistory.push({ sender: 'chatbot', message: "¡Hola! Soy el Asistente Legal Virtual de la Municipalidad Provincial de Puno. Estoy aquí para ayudarle con información sobre trámites administrativos." });
+                conversationHistory.push({ sender: 'chatbot', message: "¡Hola! Soy el Asistente Municipal Virtual de la Municipalidad Provincial de Puno. Estoy aquí para ayudarle con información sobre trámites administrativos." });
             }
 
             setInputState(false);
@@ -99,14 +99,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Almacenar el contenido del archivo para futuras interacciones
                 uploadedFileContent = data.file_content; 
 
-                addMessageToChat('chatbot', `Asistente Legal de Puno: ${data.message}`);
-                addMessageToChat('chatbot', 'Asistente Legal de Puno: He procesado el documento. Ahora puedo usar su contenido para responder a sus preguntas. ¿En qué más puedo ayudarle con trámites legales?');
+                addMessageToChat('chatbot', `Asistente Municipal de Puno: ${data.message}`);
+                addMessageToChat('chatbot', 'Asistente Municipal de Puno: He procesado el documento. Ahora puedo usar su contenido para responder a sus preguntas. ¿En qué más puedo ayudarle con trámites Municipales?');
                 setInputState(false);
                 userInput.focus();
 
             } catch (error) {
                 console.error('Error al subir el archivo:', error);
-                addMessageToChat('chatbot', 'Asistente Legal de Puno: Lo siento, hubo un error al subir el archivo o procesar su contenido. Por favor, intente de nuevo.');
+                addMessageToChat('chatbot', 'Asistente Municipal de Puno: Lo siento, hubo un error al subir el archivo o procesar su contenido. Por favor, intente de nuevo.');
                 setInputState(false);
             }
         }
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const thinkingBubble = document.createElement('div');
         thinkingBubble.classList.add('message-bubble', 'chatbot-message', 'thinking-message');
-        thinkingBubble.textContent = 'El Asistente Legal está pensando...';
+        thinkingBubble.textContent = 'Asistente Municipal de Puno: Estoy pensando...'; // Modificado
         chatWindow.appendChild(thinkingBubble);
         chatWindow.scrollTop = chatWindow.scrollHeight;
 
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             console.error('Error al obtener respuesta del chatbot:', error);
             chatWindow.removeChild(thinkingBubble);
-            addMessageToChat('chatbot', 'Lo siento, hubo un error en la consulta. Por favor, intente de nuevo más tarde.');
+            addMessageToChat('chatbot', 'Asistente Municipal de Puno: Lo siento, hubo un error en la consulta. Por favor, intente de nuevo más tarde.'); // Modificado
             setInputState(false);
         }
     }
@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const thinkingBubble = document.createElement('div');
         thinkingBubble.classList.add('message-bubble', 'chatbot-message', 'thinking-message');
-        thinkingBubble.textContent = 'El Asistente Legal está pensando...';
+        thinkingBubble.textContent = 'Asistente Municipal de Puno: Estoy pensando...'; // Modificado
         chatWindow.appendChild(thinkingBubble);
         chatWindow.scrollTop = chatWindow.scrollHeight;
 
@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             console.error('Error al obtener respuesta del chatbot:', error);
             chatWindow.removeChild(thinkingBubble);
-            addMessageToChat('chatbot', 'Lo siento, hubo un error en la consulta. Por favor, intente de nuevo más tarde.');
+            addMessageToChat('chatbot', 'Asistente Municipal de Puno: Lo siento, hubo un error en la consulta. Por favor, intente de nuevo más tarde.'); // Modificado
             setInputState(false);
         }
     }
