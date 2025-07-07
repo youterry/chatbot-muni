@@ -8,48 +8,47 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(135deg, #e0f7fa, #bbdefb); /* Degradado celeste suave */
+            background: linear-gradient(135deg, #e0f7fa, #bbdefb); 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px; /* Padding por defecto para pantallas más grandes */
+            padding: 20px; 
             margin: 0;
-            overflow: hidden; /* Evita barras de desplazamiento innecesarias en el body */
+            overflow: hidden;
         }
         .chat-container {
-            width: 100%; /* Por defecto, ocupa todo el ancho disponible */
-            max-width: 650px; /* **Aumento del ancho para desktop** */
+            width: 100%; 
+            max-width: 650px; 
             background-color: #ffffff;
-            border-radius: 15px; /* Bordes suaves por defecto */
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Sombra por defecto */
+            border-radius: 15px; 
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); 
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            height: 90vh; /* Altura fija para simular widget en desktop */
-            min-height: 450px; /* Altura mínima para que no se vea muy pequeño */
+            height: 90vh; 
+            min-height: 450px; 
         }
 
-        /* MEDIA QUERIES para responsividad */
-        @media (max-width: 576px) { /* Para dispositivos muy pequeños (celulares) */
+        @media (max-width: 576px) { 
             body {
-                padding: 0; /* Elimina el padding del body para que el chat ocupe todo */
-                overflow-y: auto; /* Permite scroll si el contenido es largo */
+                padding: 0; 
+                overflow-y: auto; 
             }
             .chat-container {
-                border-radius: 0; /* Sin bordes redondeados en vista completa */
-                height: 100vh; /* Ocupa toda la altura de la ventana */
-                width: 100%; /* Ocupa todo el ancho */
-                max-width: none; /* Deshabilita el max-width */
-                min-height: 100vh; /* Asegura la altura mínima */
-                margin: 0; /* Sin márgenes */
-                box-shadow: none; /* Sin sombra */
+                border-radius: 0; 
+                height: 100vh; 
+                width: 100%; 
+                max-width: none; 
+                min-height: 100vh; 
+                margin: 0; 
+                box-shadow: none; 
             }
         }
 
         .chat-header {
-            background: linear-gradient(to right, #007bff, #00bfff); /* Degradado azul-celeste */
+            background: linear-gradient(to right, #007bff, #00bfff); 
             color: white;
             padding: 1rem 1.25rem;
             display: flex;
@@ -58,10 +57,9 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             border-top-left-radius: 15px;
             border-top-right-radius: 15px;
-            position: relative; /* Para el indicador online */
+            position: relative;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        /* Ajuste de border-radius para el header en pantallas pequeñas */
         @media (max-width: 576px) {
             .chat-header {
                 border-top-left-radius: 0;
@@ -95,7 +93,7 @@
             background-color: rgba(255, 255, 255, 0.3);
         }
         .chat-header img {
-            width: 35px; /* Tamaño del logo ajustado */
+            width: 35px;
             height: 35px;
             margin-right: 8px;
             border-radius: 50%;
@@ -106,7 +104,7 @@
             display: flex;
             align-items: center;
             padding: 0.5rem 1.25rem;
-            background-color: #f8f9fa; /* Fondo blanco para el indicador */
+            background-color: #f8f9fa; 
             border-bottom: 1px solid #e9ecef;
             color: #495057;
             font-size: 0.85rem;
@@ -115,7 +113,7 @@
         .online-indicator .status-dot {
             width: 8px;
             height: 8px;
-            background-color: #28a745; /* Verde para 'online' */
+            background-color: #28a745; 
             border-radius: 50%;
             margin-right: 8px;
             animation: pulse 1.5s infinite;
@@ -130,7 +128,7 @@
             flex-grow: 1;
             padding: 1rem;
             overflow-y: auto;
-            background-color: #fbfdff; /* Fondo muy claro para el chat */
+            background-color: #fbfdff; 
             background-image: url('https://www.transparenttextures.com/patterns/white-paper.png');
         }
         .chat-input {
@@ -143,7 +141,6 @@
             border-bottom-left-radius: 15px;
             border-bottom-right-radius: 15px;
         }
-        /* Ajuste de border-radius para el input en pantallas pequeñas */
         @media (max-width: 576px) {
             .chat-input {
                 border-bottom-left-radius: 0;
@@ -154,7 +151,7 @@
         .chat-input input {
             flex-grow: 1;
             margin-right: 0.75rem;
-            border-radius: 20px; /* Bordes redondeados para el input */
+            border-radius: 20px; 
             padding: 0.75rem 1rem;
             border: 1px solid #ced4da;
             font-size: 0.95rem;
@@ -166,12 +163,12 @@
             outline: none;
         }
         .send-button {
-            background: linear-gradient(45deg, #007bff, #00bfff); /* Degradado para el botón enviar */
+            background: linear-gradient(45deg, #007bff, #00bfff); 
             border: none;
-            border-radius: 50%; /* Botón circular */
-            min-width: 45px; /* Asegura tamaño mínimo */
+            border-radius: 50%; 
+            min-width: 45px; 
             min-height: 45px;
-            width: 45px; /* Tamaño fijo para el círculo */
+            width: 45px; 
             height: 45px;
             display: flex;
             align-items: center;
@@ -180,7 +177,7 @@
             font-size: 1.2rem;
             box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            flex-shrink: 0; /* Evita que el botón se achique */
+            flex-shrink: 0;
         }
         .send-button:hover {
             transform: translateY(-2px);
@@ -194,24 +191,24 @@
         }
         
         .message-bubble {
-            margin-bottom: 0.8rem; /* Espaciado entre burbujas */
+            margin-bottom: 0.8rem; 
             padding: 0.85rem 1.1rem;
-            border-radius: 18px; /* Más redondeado */
-            max-width: 85%; /* Sigue siendo flexible */
+            border-radius: 18px; 
+            max-width: 85%;
             font-size: 0.95rem;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); /* Sombra suave para las burbujas */
-            animation: fadeIn 0.3s ease-out; /* Animación de aparición */
-            word-wrap: break-word; /* Asegura que las palabras largas se rompan */
-            line-height: 1.5; /* Mejora la legibilidad del texto */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); 
+            animation: fadeIn 0.3s ease-out; 
+            word-wrap: break-word; 
+            line-height: 1.5; 
         }
         .chatbot-message {
-            background-color: #e0f7fa; /* Celeste muy claro */
+            background-color: #e0f7fa; 
             color: #333;
             align-self: flex-start;
             margin-right: auto;
         }
         .user-message {
-            background: linear-gradient(45deg, #007bff, #00bfff); /* Degradado azul-celeste para el usuario */
+            background: linear-gradient(45deg, #007bff, #00bfff); 
             color: white;
             align-self: flex-end;
             margin-left: auto;
@@ -219,17 +216,16 @@
         .message-bubble strong {
             font-weight: bold;
         }
-        /* Estilos específicos para los títulos dentro de las burbujas del chatbot */
         .chatbot-message h6 {
             font-weight: bold;
-            color: #0056b3; /* Un azul más oscuro para los títulos */
+            color: #0056b3; 
             margin-top: 10px;
             margin-bottom: 5px;
             border-bottom: 1px solid rgba(0, 123, 255, 0.2);
             padding-bottom: 3px;
         }
         .chatbot-message p {
-            margin-bottom: 5px; /* Espaciado entre párrafos */
+            margin-bottom: 5px;
         }
         .chatbot-message ul {
             padding-left: 20px;
@@ -242,10 +238,9 @@
 
         .options-container {
             display: flex;
-            flex-wrap: wrap; /* Importante para que los botones de opción se envuelvan */
+            flex-wrap: wrap; 
             justify-content: flex-start;
             margin-bottom: 1rem;
-            /* Asegura que los botones de opción también se ajusten a pantallas pequeñas */
             max-width: 100%;
         }
         .option-button {
@@ -253,13 +248,13 @@
             background-color: white;
             color: #007bff;
             border: 1px solid #007bff;
-            border-radius: 20px; /* Botones de opción más redondeados */
+            border-radius: 20px; 
             padding: 0.6rem 1.2rem;
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 0.9rem;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
-            white-space: nowrap; /* Evita que el texto de los botones se rompa a menos que sea necesario */
+            white-space: nowrap; 
         }
         .option-button:hover {
             background: linear-gradient(45deg, #007bff, #00bfff);
@@ -283,9 +278,9 @@
             text-align: center;
             padding: 0.5rem 1rem;
             font-size: 0.9rem;
-            animation: none; /* No fadeIn para thinking */
+            animation: none;
         }
-        /* Puntos de animación de 'pensando' */
+
         .thinking-message::after {
             content: '';
             animation: dot-animation 1.5s infinite steps(3, end);
@@ -297,20 +292,18 @@
             100% { content: '.'; }
         }
 
-        /* Animación para burbujas de mensaje */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Estilos para el dropdown del menú */
         .dropdown-menu {
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             border: none;
             background-color: #ffffff;
             min-width: 180px;
-            right: 0; /* Alinearlo a la derecha del botón */
+            right: 0; 
             left: unset;
         }
         .dropdown-menu .dropdown-item {
@@ -319,27 +312,26 @@
             transition: background-color 0.2s ease;
         }
         .dropdown-menu .dropdown-item:hover {
-            background-color: #e3f2fd; /* Fondo celeste claro en hover */
+            background-color: #e3f2fd;
             color: #007bff;
         }
 
-        /* Estilos de los botones de bienvenida para que se adapten mejor */
         .welcome-message .btn {
             padding: 0.75rem 1.5rem;
             font-size: 1rem;
             border-radius: 25px;
-            margin: 0.5rem; /* Ajuste para espacio entre botones */
+            margin: 0.5rem; 
         }
         .welcome-message .d-flex {
-            flex-wrap: wrap; /* Asegura que los botones se envuelvan si no hay espacio */
+            flex-wrap: wrap; 
             justify-content: center;
         }
-        .welcome-message .send-button { /* Aplica estilo de degradado al botón principal de bienvenida */
+        .welcome-message .send-button { 
             background: linear-gradient(45deg, #007bff, #00bfff);
             color: white;
             border: none;
             box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
-            width: auto; /* Permite que el ancho se ajuste al contenido */
+            width: auto; 
             height: auto;
             min-width: unset;
             min-height: unset;
